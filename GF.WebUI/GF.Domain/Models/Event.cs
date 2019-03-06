@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GF.Domain.Models
 {
-    public class Date
+    public class Event
     {
         public int Id { get; set; }
         public DateTime DayOfEvent { get; set; }
