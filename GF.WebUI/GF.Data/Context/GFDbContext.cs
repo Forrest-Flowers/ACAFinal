@@ -13,7 +13,7 @@ namespace GF.Data.Context
         public DbSet<GroupJoinTable> GroupJoinTables { get; set; }
         public DbSet<JoinRequest> JoinRequests { get; set; }
         public DbSet<Planner> Planners { get; set; }
-        public DbSet<Date> Dates { get; set; }
+        public DbSet<Event> Events { get; set; }
         public DbSet<JoinRequestStatus> JoinRequestStatuses { get; set; }
 
 
