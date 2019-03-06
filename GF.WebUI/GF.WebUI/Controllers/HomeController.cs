@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using GF.Web.UI.Models;
 using Microsoft.AspNetCore.Mvc;
-using GF.WebUI.Models;
 
 namespace GF.WebUI.Controllers
 {

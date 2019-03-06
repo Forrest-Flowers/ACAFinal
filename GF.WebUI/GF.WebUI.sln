@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GF.WebUI", "GF.WebUI\GF.WebUI.csproj", "{9A446984-AE6E-472F-AE04-8A7DD89BFC62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GF.WebUI", "GF.WebUI\GF.WebUI.csproj", "{9A446984-AE6E-472F-AE04-8A7DD89BFC62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GF.Domain", "GF.Domain\GF.Domain.csproj", "{BAF42E27-126A-4225-A70A-3E3BCB187899}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GF.Domain", "GF.Domain\GF.Domain.csproj", "{BAF42E27-126A-4225-A70A-3E3BCB187899}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GF.Data", "GF.Data\GF.Data.csproj", "{08B4DE12-1D3D-4790-8249-FB7D3CB3C617}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{BAF42E27-126A-4225-A70A-3E3BCB187899}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAF42E27-126A-4225-A70A-3E3BCB187899}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAF42E27-126A-4225-A70A-3E3BCB187899}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08B4DE12-1D3D-4790-8249-FB7D3CB3C617}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08B4DE12-1D3D-4790-8249-FB7D3CB3C617}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08B4DE12-1D3D-4790-8249-FB7D3CB3C617}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08B4DE12-1D3D-4790-8249-FB7D3CB3C617}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
