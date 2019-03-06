@@ -23,5 +23,15 @@ namespace GF.Data.Context
             optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=GF;Trusted_Connection=True");
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<JoinRequestStatus>().HasData(
+                new JoinRequestStatus { Id = 1, Description = "New" },
+                new JoinRequestStatus { Id = 2, Description = "Pending" },
+                new JoinRequestStatus { Id = 3, Description = "Accepted" },
+                new JoinRequestStatus { Id = 4, Description = "Denied" }
+                );
+        }
+
     }
 }

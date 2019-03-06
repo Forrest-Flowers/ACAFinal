@@ -11,7 +11,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GF.Data\GF.Data.csproj" />
-    <ProjectReference Include="..\GF.Domain\GF.Domain.csproj" />
   </ItemGroup>
 
 </Project>
