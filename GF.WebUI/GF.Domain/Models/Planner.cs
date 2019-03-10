@@ -11,6 +11,6 @@ namespace GF.Domain.Models
         public int GroupId { get; set; }
         public Group Group { get; set; }
 
-        IEnumerable<Event> Events { get; set; }
+        ICollection<Event> Events { get; set; }
     }
 }

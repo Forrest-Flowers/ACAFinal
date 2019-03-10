@@ -11,13 +11,12 @@ namespace GF.Data.Interfaces
         Planner Create(Planner newPlanner);
 
         //Read
-        Planner GetByGroupId(int groupId);
-        Planner GetByDateId(int dateId);
-
+        Planner GetById(int plannerId);
+        ICollection<Planner> GetByGroupId(int groupId);
         //Update
         Planner Update(Planner updatedPlanner);
 
         //Delete
-        bool DeleteById(int PlannerId);
+        bool DeleteById(int plannerId);
     }
 }

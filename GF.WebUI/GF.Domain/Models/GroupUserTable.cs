@@ -4,14 +4,12 @@ using System.Text;
 
 namespace GF.Domain.Models
 {
-    public class GroupJoinTable
+    public class GroupUserTable
     {
-        public int Id { get; set; }
-
-        public string UserId { get; set; }
-        public User User { get; set; }
-
         public int GroupId { get; set; }
+        public string UserId { get; set; }
+
+        public User User { get; set; } 
         public Group Group { get; set; }
     }
 }
