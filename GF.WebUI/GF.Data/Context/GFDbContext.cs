@@ -10,7 +10,7 @@ namespace GF.Data.Context
     {
         public DbSet<Group> Groups { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<GroupJoinTable> GroupJoinTables { get; set; }
+        public DbSet<GroupUserTable> GroupJoinTables { get; set; }
         public DbSet<JoinRequest> JoinRequests { get; set; }
         public DbSet<Planner> Planners { get; set; }
         public DbSet<Event> Events { get; set; }
@@ -31,6 +31,9 @@ namespace GF.Data.Context
                 new JoinRequestStatus { Id = 3, Description = "Accepted" },
                 new JoinRequestStatus { Id = 4, Description = "Denied" }
                 );
+
+            modelBuilder.Entity<GroupUserTable>()
+                .HasKey(x => new { x.GroupId, x.UserId });
         }
 
     }

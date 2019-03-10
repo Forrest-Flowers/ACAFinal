@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GF.WebUI", "GF.WebUI\GF.Web
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GF.Domain", "GF.Domain\GF.Domain.csproj", "{BAF42E27-126A-4225-A70A-3E3BCB187899}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GF.Data", "GF.Data\GF.Data.csproj", "{08B4DE12-1D3D-4790-8249-FB7D3CB3C617}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GF.Data", "GF.Data\GF.Data.csproj", "{08B4DE12-1D3D-4790-8249-FB7D3CB3C617}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

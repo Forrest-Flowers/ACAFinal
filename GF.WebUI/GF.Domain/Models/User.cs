@@ -12,6 +12,6 @@ namespace GF.Domain.Models
         public string ScreenName { get; set; }
 
 
-        IEnumerable<Group> Groups { get; set; }
+        ICollection<Group> Groups { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace GF.Domain.Models
         public string MOTD { get; set; }
         public string AdminId;
 
-        IEnumerable<User> Users { get; set; }
-        IEnumerable<JoinRequest> JoinRequests { get; set; }
+        public ICollection<User> Users { get; set; }
+        public ICollection<JoinRequest> JoinRequests { get; set; }
     }
 }
