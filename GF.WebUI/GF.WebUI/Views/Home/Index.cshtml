@@ -1,2 +1,7 @@
-﻿ 
+﻿
 <h2>Landing Page</h2>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <p>Welcome to the site! - @User.Identity.Name</p>
+}

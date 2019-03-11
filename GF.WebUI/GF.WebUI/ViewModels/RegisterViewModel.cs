@@ -8,12 +8,12 @@ namespace GF.WebUI.ViewModels
 {
     public class RegisterViewModel
     {
-        [EmailAddress]
+        [EmailAddress, Required]
         [Display(Name = "Email Address")]
         public string Email { get; set; }
-        [DataType(DataType.Password)]
+        [DataType(DataType.Password), Required]
         public string Password { get; set; }
-        [DataType(DataType.Password), Compare("Password", ErrorMessage = "Passwords don't match!")]
+        [DataType(DataType.Password), Compare("Password", ErrorMessage = "Passwords Don't Match"), Required]
         public string ConfirmedPassword { get; set; }
     }
 }
