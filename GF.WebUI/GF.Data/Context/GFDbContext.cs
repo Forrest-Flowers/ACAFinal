@@ -1,4 +1,5 @@
 ﻿using GF.Domain.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -26,6 +27,11 @@ namespace GF.Data.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<IdentityRole>().HasData(
+                new IdentityRole { Name = "User", NormalizedName = "USER"},
+                new IdentityRole { Name = "Admin", NormalizedName = "ADMIN"}
+                );
 
             modelBuilder.Entity<JoinRequestStatus>().HasData(
                 new JoinRequestStatus { Id = 1, Description = "New" },
