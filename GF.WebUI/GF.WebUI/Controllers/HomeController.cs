@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using GF.Domain.Models;
 using GF.Web.UI.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GF.WebUI.Controllers
 {
     public class HomeController : Controller
     {
+        public HomeController()
+        {
+        }
         public IActionResult Index()
         {
             return View();

@@ -15,6 +15,7 @@ using GF.Data.Implementation.EFCore;
 using GF.Service.Services;
 using GF.Domain.Models;
 using GF.Data.Context;
+using Microsoft.AspNetCore.Identity;
 
 namespace GF.WebUI
 {
@@ -37,7 +38,7 @@ namespace GF.WebUI
             GetDependencyResolvedForServiceLayer(services);
 
             services.AddDbContext<GFDbContext>();
-            services.AddDefaultIdentity<User>()
+            services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<GFDbContext>();
 
             services.Configure<CookiePolicyOptions>(options =>
