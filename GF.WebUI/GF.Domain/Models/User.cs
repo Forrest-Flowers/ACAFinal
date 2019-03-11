@@ -10,6 +10,7 @@ namespace GF.Domain.Models
         public string Email { get; set; }
         public string Password { get; set; }
         public string ScreenName { get; set; }
+        public string ProfilePicture { get; set; }
 
 
         ICollection<Group> Groups { get; set; }

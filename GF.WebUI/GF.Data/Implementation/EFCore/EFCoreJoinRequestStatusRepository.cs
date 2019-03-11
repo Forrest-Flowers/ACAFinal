@@ -8,68 +8,23 @@ using System.Text;
 
 namespace GF.Data.Implementation.EFCore
 {
-    public class EFCoreJoinRequestStatusRepository : IJoinRequestRepository
+    public class EFCoreJoinRequestStatusRepository : IJoinRequestStatusRepository
     {
-        public JoinRequest Create(JoinRequest newJoinRequest)
+        public ICollection<JoinRequestStatus> GetAll()
         {
             using (var context = new GFDbContext())
             {
-                context.JoinRequests.Add(newJoinRequest);
-                context.SaveChanges();
+                var alljrs = context.JoinRequestStatuses.ToList();
 
-                return newJoinRequest;
+                return alljrs;
             }
         }
 
-        public bool DeleteById(int joinRequestId)
+        public JoinRequestStatus GetById(int joinRequestStatusId)
         {
             using (var context = new GFDbContext())
             {
-                var joinRequest = GetById(joinRequestId);
-                context.Remove(joinRequest);
-                context.SaveChanges();
-
-                if(GetById(joinRequestId) == null)
-                {
-                    return true;
-                }
-                return false;
-            }
-        }
-
-        public ICollection<JoinRequest> GetByGroupId(int groupId)
-        {
-            using (var context = new GFDbContext())
-            {
-                return context.JoinRequests.Where(jr => jr.GroupId == groupId).ToList();
-            }
-        }
-
-        public JoinRequest GetById(int joinRequestId)
-        {
-            using (var context = new GFDbContext())
-            {
-                return context.JoinRequests.Single(jr => jr.Id == joinRequestId);
-            }
-        }
-
-        public ICollection<JoinRequest> GetByUserId(string userId)
-        {
-            using (var context = new GFDbContext())
-            {
-                return context.JoinRequests.Where(jr => jr.UserId == userId).ToList();
-            }
-        }
-
-        public JoinRequest Update(JoinRequest updatedJoinRequest)
-        {
-            using (var context = new GFDbContext())
-            {
-                var existingJoinRequest = GetById(updatedJoinRequest.Id);
-                context.Entry(existingJoinRequest).CurrentValues.SetValues(updatedJoinRequest);
-                context.SaveChanges();
-
-                return existingJoinRequest;
+                return context.JoinRequestStatuses.Single(ms => ms.Id == joinRequestStatusId);
             }
         }
     }
