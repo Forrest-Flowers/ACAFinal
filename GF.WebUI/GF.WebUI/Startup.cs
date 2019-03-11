@@ -13,6 +13,8 @@ using GF.Domain;
 using GF.Data.Interfaces;
 using GF.Data.Implementation.EFCore;
 using GF.Service.Services;
+using GF.Domain.Models;
+using GF.Data.Context;
 
 namespace GF.WebUI
 {
@@ -33,6 +35,10 @@ namespace GF.WebUI
 
             //Service Layer
             GetDependencyResolvedForServiceLayer(services);
+
+            services.AddDbContext<GFDbContext>();
+            services.AddDefaultIdentity<User>()
+                .AddEntityFrameworkStores<GFDbContext>();
 
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -77,9 +83,10 @@ namespace GF.WebUI
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
-
+     
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseAuthentication();
             app.UseCookiePolicy();
 
             app.UseMvc(routes =>

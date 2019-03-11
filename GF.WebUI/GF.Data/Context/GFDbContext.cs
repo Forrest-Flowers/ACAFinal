@@ -1,4 +1,5 @@
 ﻿using GF.Domain.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -6,11 +7,10 @@ using System.Text;
 
 namespace GF.Data.Context
 {
-    public class GFDbContext : DbContext
+    public class GFDbContext : IdentityDbContext<User>
     {
         public DbSet<Group> Groups { get; set; }
-        public DbSet<User> Users { get; set; }
-        public DbSet<GroupUserTable> GroupJoinTables { get; set; }
+        public DbSet<GroupUserLink> GroupJoinLinks { get; set; }
         public DbSet<JoinRequest> JoinRequests { get; set; }
         public DbSet<Planner> Planners { get; set; }
         public DbSet<Event> Events { get; set; }
@@ -25,6 +25,8 @@ namespace GF.Data.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<JoinRequestStatus>().HasData(
                 new JoinRequestStatus { Id = 1, Description = "New" },
                 new JoinRequestStatus { Id = 2, Description = "Pending" },
@@ -32,7 +34,7 @@ namespace GF.Data.Context
                 new JoinRequestStatus { Id = 4, Description = "Denied" }
                 );
 
-            modelBuilder.Entity<GroupUserTable>()
+            modelBuilder.Entity<GroupUserLink>()
                 .HasKey(x => new { x.GroupId, x.UserId });
         }
 
