@@ -9,7 +9,7 @@ namespace GF.Data.Interfaces
     {
         //Read-Only
 
-        JoinRequestStatus GetById(int joinRequestStatus);
+        JoinRequestStatus GetById(int joinRequestStatuId);
         ICollection<JoinRequestStatus> GetAll();
     }
 }
