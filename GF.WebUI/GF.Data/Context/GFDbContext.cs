@@ -21,18 +21,22 @@ namespace GF.Data.Context
         //Setting up the provider. (SqlServer) and location of Database.
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=GF;Trusted_Connection=True");
+            //optionsBuilder.UseSqlServer(Environment.GetEnvironmentVariable("SQLCONNSTR_GROUPFINDER_DB"));
+
+            //optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=GF;Trusted_Connection=True");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
+            //Make some Roles!
             modelBuilder.Entity<IdentityRole>().HasData(
                 new IdentityRole { Name = "User", NormalizedName = "USER"},
                 new IdentityRole { Name = "Admin", NormalizedName = "ADMIN"}
                 );
 
+            //Seeding for Join Request Responses.
             modelBuilder.Entity<JoinRequestStatus>().HasData(
                 new JoinRequestStatus { Id = 1, Description = "New" },
                 new JoinRequestStatus { Id = 2, Description = "Pending" },
@@ -40,8 +44,11 @@ namespace GF.Data.Context
                 new JoinRequestStatus { Id = 4, Description = "Denied" }
                 );
 
+            //Supposed to properly connect Groups to Users. Don't know if I did this correctly.
             modelBuilder.Entity<GroupUserLink>()
                 .HasKey(x => new { x.GroupId, x.UserId });
+
+
         }
 
     }

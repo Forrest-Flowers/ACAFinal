@@ -10,10 +10,9 @@ namespace GF.Domain.Models
         public string GroupPicture { get; set; }
         public string Name { get; set; }
         public string MOTD { get; set; }
-        public string AdminId { get; set; }
-        
 
-        public ICollection<User> Users { get; set; }
+
+        public ICollection<GroupUserLink> GroupUserLinks { get; set; }
         public ICollection<JoinRequest> JoinRequests { get; set; }
     }
 }

@@ -10,6 +10,6 @@ namespace GF.Domain.Models
         public string ProfilePicture { get; set; }
         public string Bio { get; set; }
 
-        ICollection<Group> Groups { get; set; }
+        ICollection<GroupUserLink> GroupsUserLinks { get; set; }
     }
 }

@@ -1,7 +1,29 @@
-﻿
-<h2>Landing Page</h2>
+﻿@model ICollection<Group>
 
-@if (User.Identity.IsAuthenticated)
-{
-    <p>Welcome to the site! - @User.Identity.Name</p>
-}
+<div class="alert alert-secondary">
+    There's no groups here!
+</div>
+
+<a class="btn btn-primary" asp-action="create">Create A Group!</a>
+
+@*<table class="table">
+            <tr class="thead-dark">
+                <th></th>
+                <th>City</th>
+                <th>State</th>
+            </tr>
+            @foreach (var g in Model)
+            {
+            <tr>
+                <td>
+                    <img src=" @g.GroupPicture" alt="Group Image" />
+                </td>
+                <td>@g.Name</td>
+                <td>@g.MOTD</td>
+            </tr>
+            }
+
+        </table>
+    }*@
+
+
