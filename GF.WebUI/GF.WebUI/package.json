@@ -1,0 +1,17 @@
+{
+  "name": "natchat",
+  "version": "1.0.0",
+  "description": "A tool for TTRPGs to find groups and play games!",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-sass": "^4.0.2",
+    "node-sass": "^4.11.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Forrest Flowers",
+  "license": "ISC"
+}

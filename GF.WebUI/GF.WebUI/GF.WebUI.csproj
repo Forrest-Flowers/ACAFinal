@@ -15,4 +15,8 @@
     <ProjectReference Include="..\GF.Service\GF.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\sass\components\" />
+  </ItemGroup>
+
 </Project>
