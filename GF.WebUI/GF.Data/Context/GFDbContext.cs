@@ -21,7 +21,7 @@ namespace GF.Data.Context
         //Setting up the provider. (SqlServer) and location of Database.
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseSqlServer(Environment.GetEnvironmentVariable("SQLCONNSTR_GROUPFINDER_DB"));
+            optionsBuilder.UseSqlServer(Environment.GetEnvironmentVariable("SQLCONNSTR_GROUPFINDER_DB"));
 
             //optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=GF;Trusted_Connection=True");
         }
