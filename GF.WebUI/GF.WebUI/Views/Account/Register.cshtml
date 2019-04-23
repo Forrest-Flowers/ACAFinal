@@ -1,17 +1,22 @@
 ﻿@model RegisterViewModel
 
-<h2>Register</h2>
+<div class="text-center">
+    <h1 class="h3 mb-3 font-weight-normal">Register</h1>
+    <form asp-action="Register" method="post" class="form-register">
+        <div asp-validation-summary="All">
 
-<form asp-action="register" method="post">
-    <div asp-validation-summary="All"></div>
-    <label asp-for="Email"></label>
-    <input asp-for="Email" />
-    <br />
-    <label asp-for="Password"></label>
-    <input asp-for="Password" />
-    <br />
-    <label asp-for="ConfirmedPassword"></label>
-    <input asp-for="ConfirmedPassword" />
+            <label asp-for="Email" class="sr-only"></label>
+            <input asp-for="Email" class="form-control" />
 
-    <button type="submit">Register</button>
-</form>
+            <label asp-for="Password" class="sr-only"></label>
+            <input asp-for="Password" class="form-control" />
+
+            <label asp-for="ConfirmedPassword" class="sr-only"></label>
+            <input asp-for="ConfirmedPassword" class="form-control" />
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <a asp-controller="account" asp-action="register" class="btn-link">Don't have an account?</a>
+
+        </div>
+    </form>
+</div>

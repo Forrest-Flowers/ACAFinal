@@ -20,12 +20,7 @@ namespace GF.WebUI.Controllers
             return View();
         }
 
-        public IActionResult About()
-        {
-            return View();
-        }
-
-        public IActionResult Contact()
+        public IActionResult GroupList()
         {
             return View();
         }
@@ -35,7 +30,7 @@ namespace GF.WebUI.Controllers
             return View();
         }
 
-        public IActionResult Create()
+        public IActionResult CreateGroup()
         {
             return View();
         }

@@ -60,11 +60,13 @@ namespace GF.WebUI.Controllers
             }
             return View(vm);
         }
-                [HttpGet]
-                public IActionResult SignIn()
-                {
-                    return View();
-                }
+
+        [HttpGet]
+        public IActionResult SignIn()
+        {
+            return View();
+        }
+
         [HttpPost]
         public async Task<IActionResult> SignIn(SignInViewModel vm)
         {

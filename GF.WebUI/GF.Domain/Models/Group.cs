@@ -7,7 +7,7 @@ namespace GF.Domain.Models
     public class Group
     {
         public int Id { get; set; }
-        public string GroupPicture { get; set; }
+        public string ImageURL { get; set; }
         public string Name { get; set; }
         public string MOTD { get; set; }
 

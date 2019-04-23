@@ -7,7 +7,7 @@ namespace GF.Domain.Models
 {
     public class User : IdentityUser
     { 
-        public string ProfilePicture { get; set; }
+        public string ImageURL { get; set; }
         public string Bio { get; set; }
 
         ICollection<GroupUserLink> GroupsUserLinks { get; set; }
