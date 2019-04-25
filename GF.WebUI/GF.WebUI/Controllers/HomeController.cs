@@ -12,25 +12,13 @@ namespace GF.WebUI.Controllers
 {
     public class HomeController : Controller
     {
-        public HomeController()
+        private readonly UserManager<User> _userManager;
+
+        public HomeController(UserManager<User> userManager)
         {
+            _userManager = userManager;
         }
         public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult GroupList()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        public IActionResult CreateGroup()
         {
             return View();
         }

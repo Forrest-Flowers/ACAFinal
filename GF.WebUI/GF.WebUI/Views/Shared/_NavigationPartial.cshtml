@@ -17,6 +17,7 @@
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
             <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><a asp-controller="Group" asp-action="Grouplist">All Groups</a></li>
 
             @if (!User.Identity.IsAuthenticated)
             {
@@ -26,7 +27,8 @@
             }
             else
             {
-                <li><a asp-controller="group" asp-action="grouplist">Your Groups</a></li>
+                <li><a asp-controller="group" asp-action="Usergrouplist">Your Groups</a></li>
+                <li><a asp-controller=account asp-action="Signout">Sign Out</a></li>
             }
 
         </ul>

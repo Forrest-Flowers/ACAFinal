@@ -37,6 +37,16 @@ namespace GF.Data.Implementation.EFCore
             }
         }
 
+        public ICollection<Group> GetAll()
+        {
+            using (var context = new GFDbContext())
+            {
+                var allGroups = context.Groups.ToList();
+
+                return allGroups;
+            }
+        }
+
         public Group GetById(int groupId)
         {
             using (var context = new GFDbContext())

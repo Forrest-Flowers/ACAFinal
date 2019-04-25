@@ -79,7 +79,7 @@ namespace GF.WebUI.Controllers
                     //get user
                     var user = await _userManager.FindByEmailAsync(vm.Email);
 
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Home","Index");
                 }
                 else
                 {
@@ -87,6 +87,13 @@ namespace GF.WebUI.Controllers
                 }
             }
             return View(vm);
+        }
+
+        public async Task<IActionResult> SignOut()
+        {
+            await _signInManager.SignOutAsync();
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

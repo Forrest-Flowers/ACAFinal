@@ -1,4 +1,5 @@
-﻿using GF.Domain.Models;
+﻿using GF.Data.Interfaces;
+using GF.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,26 +10,30 @@ namespace GF.Service.Services
     {
         Group Create(Group newGroup);
         Group GetById(int groupId);
+        ICollection<Group> GetAll();
         Group Update(Group updatedGroup);
         bool DeleteById(int groupId);
     }
     public class GroupService : IGroupService
     {
-        private readonly IGroupService _groupService;
+        private readonly IGroupRepository _groupRepository;
 
-        public GroupService(IGroupService groupService) =>
-            _groupService = groupService;
+        public GroupService(IGroupRepository groupRepository) =>
+            _groupRepository = groupRepository;
 
         public Group Create(Group newGroup) =>
-            _groupService.Create(newGroup);
+            _groupRepository.Create(newGroup);
 
         public bool DeleteById(int groupId) =>
-            _groupService.DeleteById(groupId);
+            _groupRepository.DeleteById(groupId);
+
+        public ICollection<Group> GetAll() =>
+            _groupRepository.GetAll();
 
         public Group GetById(int groupId) =>
-            _groupService.GetById(groupId);
+            _groupRepository.GetById(groupId);
 
         public Group Update(Group updatedGroup) =>
-            _groupService.Update(updatedGroup);
+            _groupRepository.Update(updatedGroup);
     }
 }

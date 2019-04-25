@@ -1,47 +1,22 @@
-﻿@model ICollection<Group>
-
-
-@if(User.Identity.IsAuthenticated)
-{
-    <p>Welcome Back! - @User.Identity.Name! </p>
-}
-else
-{
-    <p>Howdy Stranger!</p>
-}
-<div class="alert alert-secondary">
-    There's no groups here!
-</div>
+﻿
 <div class="text-center">
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-4">High Rollers Welcome.</h1>
-            <p class="lead">Find a group and get to playing!</p>
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <h1 class="display-4">High Rollers Welcome.</h1>
+                <p class="lead">Sign up and get started.</p>
 
-            <a class="btn btn-primary" asp-action="creategroup">Create A Group!</a>
+                <a class="btn btn-primary" asp-controller="account" asp-action="register">Make an account</a>
+            }
+            else
+            {
+                <h1 class="display-4">Welcome back!</h1>
 
+                <a class="btn btn-primary" asp-controller="group" asp-action="grouplist">Find a group!</a>
+                <p class="lead">OR</p>
+                <a class="btn btn-primary" asp-controller="group" asp-action="creategroup">Make a group!</a>
+            }
         </div>
     </div>
 </div>
-
-@*<table class="table">
-            <tr class="thead-dark">
-                <th></th>
-                <th>City</th>
-                <th>State</th>
-            </tr>
-            @foreach (var g in Model)
-            {
-            <tr>
-                <td>
-                    <img src=" @g.GroupPicture" alt="Group Image" />
-                </td>
-                <td>@g.Name</td>
-                <td>@g.MOTD</td>
-            </tr>
-            }
-
-        </table>
-    }*@
-
-

@@ -27,6 +27,11 @@ namespace GF.Data.Implementation.Mock
             return true;
         }
 
+        public ICollection<Group> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
         public Group GetById(int groupId)
         {
             return Groups.Single(g => g.Id == groupId);

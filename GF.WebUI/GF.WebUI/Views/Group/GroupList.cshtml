@@ -1,0 +1,29 @@
+﻿@model ICollection<Group>
+
+@if (Model.Count == 0)
+{
+    <div class="alert alert-secondary">
+        There are no groups here!
+    </div>
+}
+else
+{
+    <table class="table">
+        <tr class="thead-dark">
+            <th>Image</th>
+            <th>Name</th>
+            <th>MOTD</th>
+        </tr>
+        @foreach (var g in Model)
+        {
+            <tr>
+                <td>
+                    <img src=" @g.ImageURL" alt="Group Image" />
+                </td>
+                <td>@g.Name</td>
+                <td>@g.MOTD</td>
+            </tr>
+        }
+
+    </table>
+}

@@ -11,11 +11,12 @@ namespace GF.Data.Context
     public class GFDbContext : IdentityDbContext<User>
     {
         public DbSet<Group> Groups { get; set; }
-        public DbSet<GroupUserLink> GroupJoinLinks { get; set; }
+        public DbSet<GroupUserLink> GroupUserLinks { get; set; }
         public DbSet<JoinRequest> JoinRequests { get; set; }
         public DbSet<Planner> Planners { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<JoinRequestStatus> JoinRequestStatuses { get; set; }
+
 
 
         //Setting up the provider. (SqlServer) and location of Database.
@@ -47,6 +48,16 @@ namespace GF.Data.Context
             //Supposed to properly connect Groups to Users. Don't know if I did this correctly.
             modelBuilder.Entity<GroupUserLink>()
                 .HasKey(x => new { x.GroupId, x.UserId });
+
+            modelBuilder.Entity<GroupUserLink>()
+                .HasOne(gu => gu.User)
+                .WithMany(u => u.GroupUserLinks)
+                .HasForeignKey(gu => gu.UserId);
+
+            modelBuilder.Entity<GroupUserLink>()
+                .HasOne(gu => gu.Group)
+                .WithMany(g => g.GroupUserLinks)
+                .HasForeignKey(gu => gu.GroupId);
 
 
         }
