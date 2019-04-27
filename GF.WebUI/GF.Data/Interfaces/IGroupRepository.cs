@@ -13,6 +13,7 @@ namespace GF.Data.Interfaces
         //Read
         Group GetById(int groupId);
         ICollection<Group> GetAll();
+        ICollection<Group> GetByUserId(string userId);
 
         //Update
         Group Update(Group updatedGroup);

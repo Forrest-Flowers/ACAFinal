@@ -31,7 +31,7 @@ namespace GF.WebUI.Controllers
             _environment = environment;
             _userManager = userManager;
         }
-        public IActionResult Index()
+        public IActionResult GroupIndex()
         {
             return View();
         }
@@ -62,17 +62,17 @@ namespace GF.WebUI.Controllers
                 newGroup.ImageURL = $"/images/groups/{newImageName}";
             }
 
-            GroupUserLink newGroupUserLink = new GroupUserLink
-            {
-                GroupId = newGroup.Id,
-                UserId = _userManager.GetUserId(User)
-            };
-
-            _groupUserLinkService.Create(newGroupUserLink);
             // save newGroup
             _groupService.Create(newGroup);
 
-            
+            GroupUserLink newGroupUserLink = new GroupUserLink
+            {
+                GroupId = newGroup.Id,
+                UserId = _userManager.GetUserId(User),
+                IsUserAdmin = true
+            };
+
+            _groupUserLinkService.Create(newGroupUserLink);
 
             return RedirectToAction("grouplist");
         }
@@ -81,6 +81,29 @@ namespace GF.WebUI.Controllers
             var groups = _groupService.GetAll();
 
             return View(groups); //ICollection<Groups>
+        }
+
+        public IActionResult UserGroupList(string userId)
+        {
+            var groups = _groupService.GetByUserId(userId);
+
+            return View(groups);
+        }
+
+        [HttpGet]
+        public IActionResult Update(int groupId)
+        {
+           var existingGroup = _groupService.GetById(groupId);
+
+            return View(existingGroup);
+        }
+
+        [HttpPost]
+        public IActionResult Update(Group existingGroup)
+        {
+            _groupService.Update(existingGroup);
+
+            return RedirectToAction("usergrouplist");
         }
 
     }

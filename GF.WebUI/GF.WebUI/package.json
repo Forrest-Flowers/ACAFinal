@@ -1,14 +1,15 @@
 {
-  "name": "natchat",
+  "name": "acafinal",
   "version": "1.0.0",
-  "description": "A tool for players of TTRPGS to find groups and play games.",
+  "description": "",
   "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^4.3.1"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Forrest Flowers",
-  "license": "ISC",
-  "devDependencies": {
-    "gulp": "^4.0.0"
-  }
+  "license": "ISC"
 }

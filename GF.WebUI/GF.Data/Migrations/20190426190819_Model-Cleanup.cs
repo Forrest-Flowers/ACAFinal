@@ -2,7 +2,7 @@
 
 namespace GF.Data.Migrations
 {
-    public partial class addedidtojoinentity : Migration
+    public partial class ModelCleanup : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -21,16 +21,26 @@ namespace GF.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumns: new[] { "Id", "ConcurrencyStamp" },
-                keyValues: new object[] { "03a55f79-163a-403b-a43c-b901b49b8aea", "50028e5c-7a33-4c30-a1fe-909fcd926578" });
+                keyValues: new object[] { "2c900c56-c3cf-411a-80f4-13ce11bd7bc7", "1f1106a8-118a-4886-a7fa-54fa8558561c" });
 
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumns: new[] { "Id", "ConcurrencyStamp" },
-                keyValues: new object[] { "9c9a4535-451d-4ba8-8daf-84007e368580", "c1990929-1963-45a8-98b1-83dd4d3f3816" });
+                keyValues: new object[] { "7e67defa-ab99-4bcf-a96f-c94a59f3cbf2", "3d992fdd-a55d-401f-be7c-bea84cd9ba48" });
 
             migrationBuilder.RenameTable(
                 name: "GroupJoinLinks",
                 newName: "GroupUserLinks");
+
+            migrationBuilder.RenameColumn(
+                name: "GroupPicture",
+                table: "Groups",
+                newName: "ImageURL");
+
+            migrationBuilder.RenameColumn(
+                name: "ProfilePicture",
+                table: "AspNetUsers",
+                newName: "ImageURL");
 
             migrationBuilder.RenameIndex(
                 name: "IX_GroupJoinLinks_UserId",
@@ -51,12 +61,12 @@ namespace GF.Data.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "d34ec2f2-d405-4ff3-a2eb-65773958ccd0", "aad7007b-28f9-451e-8554-a542020fadf6", "User", "USER" });
+                values: new object[] { "faf4f8ff-f72b-4be2-b96d-0a6011aa60b4", "ed723444-0965-422c-868d-b69a6c034b22", "AppUser", "APPUSER" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "d2ef98cf-0667-4106-9f07-3279eafcf692", "fb339c85-96f1-4bbc-9e54-0409b8137e9a", "Admin", "ADMIN" });
+                values: new object[] { "d17593c6-1b2c-42a7-8d84-cc28b30f2ed0", "320c8f11-4b98-4455-ad64-7326da38cdca", "SuperUser", "SUPERUSER" });
 
             migrationBuilder.AddForeignKey(
                 name: "FK_GroupUserLinks_Groups_GroupId",
@@ -92,12 +102,12 @@ namespace GF.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumns: new[] { "Id", "ConcurrencyStamp" },
-                keyValues: new object[] { "d2ef98cf-0667-4106-9f07-3279eafcf692", "fb339c85-96f1-4bbc-9e54-0409b8137e9a" });
+                keyValues: new object[] { "d17593c6-1b2c-42a7-8d84-cc28b30f2ed0", "320c8f11-4b98-4455-ad64-7326da38cdca" });
 
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumns: new[] { "Id", "ConcurrencyStamp" },
-                keyValues: new object[] { "d34ec2f2-d405-4ff3-a2eb-65773958ccd0", "aad7007b-28f9-451e-8554-a542020fadf6" });
+                keyValues: new object[] { "faf4f8ff-f72b-4be2-b96d-0a6011aa60b4", "ed723444-0965-422c-868d-b69a6c034b22" });
 
             migrationBuilder.DropColumn(
                 name: "Id",
@@ -106,6 +116,16 @@ namespace GF.Data.Migrations
             migrationBuilder.RenameTable(
                 name: "GroupUserLinks",
                 newName: "GroupJoinLinks");
+
+            migrationBuilder.RenameColumn(
+                name: "ImageURL",
+                table: "Groups",
+                newName: "GroupPicture");
+
+            migrationBuilder.RenameColumn(
+                name: "ImageURL",
+                table: "AspNetUsers",
+                newName: "ProfilePicture");
 
             migrationBuilder.RenameIndex(
                 name: "IX_GroupUserLinks_UserId",
@@ -120,12 +140,12 @@ namespace GF.Data.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "03a55f79-163a-403b-a43c-b901b49b8aea", "50028e5c-7a33-4c30-a1fe-909fcd926578", "User", "USER" });
+                values: new object[] { "2c900c56-c3cf-411a-80f4-13ce11bd7bc7", "1f1106a8-118a-4886-a7fa-54fa8558561c", "User", "USER" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "9c9a4535-451d-4ba8-8daf-84007e368580", "c1990929-1963-45a8-98b1-83dd4d3f3816", "Admin", "ADMIN" });
+                values: new object[] { "7e67defa-ab99-4bcf-a96f-c94a59f3cbf2", "3d992fdd-a55d-401f-be7c-bea84cd9ba48", "Admin", "ADMIN" });
 
             migrationBuilder.AddForeignKey(
                 name: "FK_GroupJoinLinks_Groups_GroupId",

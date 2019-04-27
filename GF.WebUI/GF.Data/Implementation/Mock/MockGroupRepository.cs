@@ -37,6 +37,11 @@ namespace GF.Data.Implementation.Mock
             return Groups.Single(g => g.Id == groupId);
         }
 
+        public ICollection<Group> GetByUserId(string userId)
+        {
+            throw new NotImplementedException();
+        }
+
         public Group Update(Group updatedGroup)
         {
             DeleteById(updatedGroup.Id);

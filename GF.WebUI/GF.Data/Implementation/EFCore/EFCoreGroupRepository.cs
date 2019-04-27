@@ -55,6 +55,17 @@ namespace GF.Data.Implementation.EFCore
             }
         }
 
+        public ICollection<Group> GetByUserId(string userId)
+        {
+            using (var context = new GFDbContext())
+            {
+                var groupUserLinks = context.GroupUserLinks.Where(gu => gu.UserId == userId);
+
+                return context.Groups.Where(g => g.GroupUserLinks == groupUserLinks).ToList();
+
+            }
+        }
+
         public Group Update(Group updatedGroup)
         {
             using (var context = new GFDbContext())

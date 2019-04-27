@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GF.Data.Migrations
 {
     [DbContext(typeof(GFDbContext))]
-    [Migration("20190425150812_added-id-to-joinentity")]
-    partial class addedidtojoinentity
+    [Migration("20190426190819_Model-Cleanup")]
+    partial class ModelCleanup
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -215,8 +215,8 @@ namespace GF.Data.Migrations
                     b.ToTable("AspNetRoles");
 
                     b.HasData(
-                        new { Id = "d34ec2f2-d405-4ff3-a2eb-65773958ccd0", ConcurrencyStamp = "aad7007b-28f9-451e-8554-a542020fadf6", Name = "User", NormalizedName = "USER" },
-                        new { Id = "d2ef98cf-0667-4106-9f07-3279eafcf692", ConcurrencyStamp = "fb339c85-96f1-4bbc-9e54-0409b8137e9a", Name = "Admin", NormalizedName = "ADMIN" }
+                        new { Id = "faf4f8ff-f72b-4be2-b96d-0a6011aa60b4", ConcurrencyStamp = "ed723444-0965-422c-868d-b69a6c034b22", Name = "AppUser", NormalizedName = "APPUSER" },
+                        new { Id = "d17593c6-1b2c-42a7-8d84-cc28b30f2ed0", ConcurrencyStamp = "320c8f11-4b98-4455-ad64-7326da38cdca", Name = "SuperUser", NormalizedName = "SUPERUSER" }
                     );
                 });
 

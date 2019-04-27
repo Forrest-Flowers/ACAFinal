@@ -11,6 +11,7 @@ namespace GF.Service.Services
         Group Create(Group newGroup);
         Group GetById(int groupId);
         ICollection<Group> GetAll();
+        ICollection<Group> GetByUserId(string userId);
         Group Update(Group updatedGroup);
         bool DeleteById(int groupId);
     }
@@ -29,6 +30,9 @@ namespace GF.Service.Services
 
         public ICollection<Group> GetAll() =>
             _groupRepository.GetAll();
+
+        public ICollection<Group> GetByUserId(string userId) =>
+            _groupRepository.GetByUserId(userId);
 
         public Group GetById(int groupId) =>
             _groupRepository.GetById(groupId);

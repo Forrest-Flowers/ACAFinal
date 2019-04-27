@@ -45,7 +45,7 @@ namespace GF.WebUI.Controllers
 
                 if (result.Succeeded)
                 {
-                    await _userManager.AddToRoleAsync(user, "USER");
+                    //await _userManager.AddToRoleAsync(AppUser, "APPUSER");
 
                     await _signInManager.SignInAsync(user, true);
                     return RedirectToAction("Index", "Home"); //default to current controller
@@ -79,7 +79,7 @@ namespace GF.WebUI.Controllers
                     //get user
                     var user = await _userManager.FindByEmailAsync(vm.Email);
 
-                    return RedirectToAction("Home","Index");
+                    return RedirectToAction("Index" , "Home");
                 }
                 else
                 {

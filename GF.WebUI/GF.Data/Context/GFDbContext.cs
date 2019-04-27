@@ -33,8 +33,8 @@ namespace GF.Data.Context
 
             //Make some Roles!
             modelBuilder.Entity<IdentityRole>().HasData(
-                new IdentityRole { Name = "User", NormalizedName = "USER"},
-                new IdentityRole { Name = "Admin", NormalizedName = "ADMIN"}
+                new IdentityRole { Name = "AppUser", NormalizedName = "APPUSER"},
+                new IdentityRole { Name = "SuperUser", NormalizedName = "SUPERUSER"}
                 );
 
             //Seeding for Join Request Responses.

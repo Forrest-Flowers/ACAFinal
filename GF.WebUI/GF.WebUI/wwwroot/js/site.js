@@ -3,5 +3,7 @@
 
 // Write your JavaScript code.
 $(document).ready(function () {
-    $('#group-id').DataTable();
+    $('#groups').DataTable({
+
+    });
 });
