@@ -16,8 +16,4 @@
     <ProjectReference Include="..\GF.Service\GF.Service.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\images\groups\" />
-  </ItemGroup>
-
 </Project>

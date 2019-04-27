@@ -1,0 +1,20 @@
+﻿@model JoinRequest
+
+
+
+<div class="text-center">
+    <h2>Apply</h2>
+    <form asp-controller="Group" asp-action="Apply" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="@Model.Title" />
+            <input class="form-control" asp-for="@Model.Title" placeholder="Title">
+        </div>
+
+        <div class="form-group">
+            <label asp-for="@Model.Body" />
+            <input class="form-control" asp-for="@Model.Body" placeholder="Application">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Apply</button>
+    </form>
+</div>

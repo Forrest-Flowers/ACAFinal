@@ -45,11 +45,11 @@ namespace GF.Data.Implementation.EFCore
             }
         }
 
-        public ICollection<Event> GetByPlannerId(int plannerId)
+        public ICollection<Event> GetByGroupId(int GroupId)
         {
             using (var context = new GFDbContext())
             {
-                return context.Events.Where(e => e.PlannerId == plannerId).ToList();
+                return context.Events.Where(e => e.GroupId == GroupId).ToList();
             }
         }
 

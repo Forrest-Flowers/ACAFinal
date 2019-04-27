@@ -12,7 +12,8 @@ namespace GF.Domain.Models
         public string MOTD { get; set; }
 
 
-        public ICollection<GroupUserLink> GroupUserLinks { get; set; }
-        public ICollection<JoinRequest> JoinRequests { get; set; }
+        public List<GroupUserLink> GroupUserLinks { get; set; }
+        public List<JoinRequest> JoinRequests { get; set; }
+        public List<Event> Events { get; set; }
     }
 }

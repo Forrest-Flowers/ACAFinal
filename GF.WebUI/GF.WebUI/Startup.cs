@@ -73,7 +73,6 @@ namespace GF.WebUI
             services.AddScoped<IUserRepository, EFCoreUserRepository>();
             services.AddScoped<IGroupRepository, EFCoreGroupRepository>();
             services.AddScoped<IGroupUserLinkRepository, EFCoreGroupUserLinkRepository>();
-            services.AddScoped<IPlannerRepository, EFCorePlannerRepository>();
             services.AddScoped<IEventRepository, EFCoreEventRepository>();
             services.AddScoped<IJoinRequestRepository, EFCoreJoinRequestRepository>();
             services.AddScoped<IJoinRequestStatusRepository, EFCoreJoinRequestStatusRepository>();
@@ -84,7 +83,6 @@ namespace GF.WebUI
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IGroupService, GroupService>();
             services.AddScoped<IGroupUserLinkService, GroupUserLinkService>();
-            services.AddScoped<IPlannerService, PlannerService>();
             services.AddScoped<IEventService, EventService>();
             services.AddScoped<IJoinRequestService, JoinRequestService>();
             services.AddScoped<IJoinRequestStatusService, JoinRequestStatusService>();

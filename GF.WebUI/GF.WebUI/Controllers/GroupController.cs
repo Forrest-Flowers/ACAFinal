@@ -17,23 +17,28 @@ namespace GF.WebUI.Controllers
     {
         private readonly IGroupService _groupService;
         private readonly IGroupUserLinkService _groupUserLinkService;
+        private readonly IJoinRequestService _joinRequestService;
         private readonly IHostingEnvironment _environment;
         private readonly UserManager<User> _userManager;
 
         public GroupController(IGroupService groupService,
             IGroupUserLinkService groupUserLinkService,
+            IJoinRequestService joinRequestService,
             IHostingEnvironment environment,
             UserManager<User> userManager
             )
         {
             _groupService = groupService;
             _groupUserLinkService = groupUserLinkService;
+            _joinRequestService = joinRequestService;
             _environment = environment;
             _userManager = userManager;
         }
-        public IActionResult GroupIndex()
-        {
-            return View();
+        public IActionResult GroupIndex(int Id)
+        {   
+            var Group = _groupService.GetById(Id);  
+
+            return View(Group);
         }
         [HttpGet]
         public IActionResult CreateGroup() => View();
@@ -76,6 +81,14 @@ namespace GF.WebUI.Controllers
 
             return RedirectToAction("grouplist");
         }
+
+        public IActionResult Delete(int Id)
+        {
+            _groupService.DeleteById(Id);
+
+            return RedirectToAction("grouplist");
+
+        }
         public IActionResult GroupList()
         {
             var groups = _groupService.GetAll();
@@ -91,10 +104,9 @@ namespace GF.WebUI.Controllers
         }
 
         [HttpGet]
-        public IActionResult Update(int groupId)
+        public IActionResult Update(int Id)
         {
-           var existingGroup = _groupService.GetById(groupId);
-
+            var existingGroup = _groupService.GetById(Id);
             return View(existingGroup);
         }
 
@@ -103,7 +115,34 @@ namespace GF.WebUI.Controllers
         {
             _groupService.Update(existingGroup);
 
-            return RedirectToAction("usergrouplist");
+
+            return RedirectToAction("GroupList");
+        }
+
+        [HttpGet]
+        public IActionResult Apply() =>
+            View();
+
+        [HttpPost]
+        public IActionResult Apply(int Id)
+        {
+            Group groupToApply = _groupService.GetById(Id);
+
+            JoinRequest joinRequest = new JoinRequest
+            {
+                Group = groupToApply,
+                GroupId = groupToApply.Id,
+                UserId = _userManager.GetUserId(User),
+                JoinRequestStatus = new JoinRequestStatus()
+                {
+                    Id = 1
+                }
+
+                
+            };
+
+            _joinRequestService.Create(joinRequest);
+           return View();
         }
 
     }

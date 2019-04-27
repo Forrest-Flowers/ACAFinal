@@ -10,7 +10,7 @@ namespace GF.Service.Services
     {
         Event Create(Event newEvent);
         Event GetById(int eventId);
-        ICollection<Event> GetByPlannerId(int plannerId);
+        ICollection<Event> GetByGroupId(int groupId);
         Event Update(Event updatedEvent);
         bool DeleteById(int eventId);
     }
@@ -31,8 +31,8 @@ namespace GF.Service.Services
         public Event GetById(int eventId) =>
             _eventRepository.GetById(eventId);
 
-        public ICollection<Event> GetByPlannerId(int plannerId) =>
-            _eventRepository.GetByPlannerId(plannerId);
+        public ICollection<Event> GetByGroupId(int groupId) =>
+            _eventRepository.GetByGroupId(groupId);
 
         public Event Update(Event updatedEvent) =>
             _eventRepository.Update(updatedEvent);

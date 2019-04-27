@@ -12,7 +12,7 @@ namespace GF.Data.Interfaces
 
         //Read
         Event GetById(int eventId);
-        ICollection<Event> GetByPlannerId(int plannerId);
+        ICollection<Event> GetByGroupId(int GroupId);
 
         //Update
         Event Update(Event updatedEvent);

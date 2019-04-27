@@ -6,29 +6,39 @@
     <div class="text-center">
         <div class="alert alert-secondary">
             There are no groups here!
+            <a class="btn btn-primary" asp-controller="group" asp-action="creategroup">Make a group!</a>
         </div>
     </div>
 }
 else
 {
     <div class="listcontainer">
+
+
         <table id="groups" class="display">
             <thead>
                 <tr>
-                    <th>Image</th>
+                    <th>    </th>
                     <th>Name</th>
                     <th>Description</th>
+                    <th>    </th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (Group g in Model)
                 {
                     <tr>
-                        <td>
-                            <img src="@g.ImageURL" class="groupimage" />
+                        <td class="iconButton">
+                            <a asp-controller="group" asp-route-id="@g.Id" asp-action="groupindex"><img src="@g.ImageURL" class="groupimage" /></a>
                         </td>
                         <td>@g.Name</td>
                         <td>@g.MOTD</td>
+                        <td>
+                            <a class="btn-link" asp-controller="group" asp-route-id="@g.Id" asp-action="update">Edit</a> |
+                            <a class="btn-link" asp-controller="group" asp-route-id="@g.Id" asp-action="Apply">Apply</a> |
+                            <a class="btn-link" asp-controller="group" asp-route-id="@g.Id" asp-action="Delete">Delete</a>
+
+                        </td>
                     </tr>
                 }
 

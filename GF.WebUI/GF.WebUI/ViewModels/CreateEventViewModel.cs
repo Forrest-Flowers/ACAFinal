@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace GF.WebUI.ViewModels
 {
-    public class GroupIndexViewModel
+    public class CreateEventViewModel
     {
-        public Group Group { get; set; }
+  
         public Event Event { get; set; }
     }
 }

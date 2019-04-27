@@ -14,8 +14,8 @@
 
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-            <li><a asp-controller="Home" asp-action="Index">Home</a></li>
-            <li><a asp-controller="Group" asp-action="Grouplist">All Groups</a></li>
+            <li><a asp-controller="home" asp-action="index" class="btn btn-link" aria-label="Left Align"><span class="glyphicon glyphicon-home"></span></a></li>
+
 
             @if (!User.Identity.IsAuthenticated)
             {
@@ -25,7 +25,8 @@
             }
             else
             {
-                <li><a asp-controller="Group" asp-action="UserGroupList">Your Groups</a></li>
+                <li><a asp-controller="Group" asp-action="Grouplist">List of Groups</a></li>
+                <li><a asp-controller="Group" asp-action="Groupcreate">Make A Group</a></li>
                 <li><a asp-controller="account" asp-action="Signout">Sign Out</a></li>
             }
 

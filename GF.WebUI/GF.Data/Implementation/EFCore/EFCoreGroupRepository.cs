@@ -1,6 +1,7 @@
 ﻿using GF.Data.Context;
 using GF.Data.Interfaces;
 using GF.Domain.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,7 +52,8 @@ namespace GF.Data.Implementation.EFCore
         {
             using (var context = new GFDbContext())
             {
-                return context.Groups.Single(g => g.Id == groupId);
+                var group = context.Groups.Include(g => g.Events).SingleOrDefault(g => g.Id == groupId);
+                return group;
             }
         }
 
@@ -66,15 +68,16 @@ namespace GF.Data.Implementation.EFCore
             }
         }
 
-        public Group Update(Group updatedGroup)
+        public Group Update(Group Group)
         {
             using (var context = new GFDbContext())
             {
-                var existingGroup = GetById(updatedGroup.Id);
-                context.Entry(existingGroup).CurrentValues.SetValues(updatedGroup);
+                var existingGroup = GetById(Group.Id);
+
+                context.Update(Group);
                 context.SaveChanges();
 
-                return existingGroup;
+                return Group;
             }
         }
     }

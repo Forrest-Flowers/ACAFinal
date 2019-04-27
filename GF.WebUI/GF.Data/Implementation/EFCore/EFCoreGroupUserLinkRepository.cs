@@ -49,7 +49,7 @@ namespace GF.Data.Implementation.EFCore
         {
             using (var context = new GFDbContext())
             {
-                return context.GroupUserLinks.Single(gu => gu.Id == Id);
+                return context.GroupUserLinks.SingleOrDefault(gu => gu.Id == Id);
             }
         }
 

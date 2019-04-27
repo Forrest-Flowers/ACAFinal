@@ -5,9 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20190421214339_change-picture-names-to-ImageURL.cs" />
-    <Compile Remove="Migrations\20190425150812_added-id-to-joinentity.cs" />
-    <Compile Remove="Migrations\20190426012144_added-id-to-joinentity.cs" />
+    <Compile Remove="Migrations\20190427184950_edit-to-event.cs" />
   </ItemGroup>
 
   <ItemGroup>

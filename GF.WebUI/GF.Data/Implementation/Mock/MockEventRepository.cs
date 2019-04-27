@@ -32,9 +32,9 @@ namespace GF.Data.Implementation.Mock
             return Events.Single(e => e.Id == eventId);
         }
 
-        public ICollection<Event> GetByPlannerId(int plannerId)
+        public ICollection<Event> GetByGroupId(int groupId)
         {
-            return Events.FindAll(e => e.PlannerId == plannerId);
+            return Events.FindAll(e => e.GroupId == groupId);
         }
 
         public Event Update(Event updatedEvent)

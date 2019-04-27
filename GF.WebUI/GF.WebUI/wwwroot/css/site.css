@@ -28,5 +28,16 @@ body {
     justify-content:center;
     align-items:center;
 }
+.iconButton
+{
+    width: 100px;
+    height: auto;
+    align-self:center;
+}
+
+.form-group {
+    padding: 10px;
+}
+/*Group List*/
 
 

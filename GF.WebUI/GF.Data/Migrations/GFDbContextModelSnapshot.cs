@@ -29,11 +29,11 @@ namespace GF.Data.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<int>("PlannerId");
+                    b.Property<int>("GroupId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PlannerId");
+                    b.HasIndex("GroupId");
 
                     b.ToTable("Events");
                 });
@@ -57,17 +57,22 @@ namespace GF.Data.Migrations
 
             modelBuilder.Entity("GF.Domain.Models.GroupUserLink", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
                     b.Property<int>("GroupId");
-
-                    b.Property<string>("UserId");
-
-                    b.Property<int>("Id");
 
                     b.Property<bool>("IsUserAdmin");
 
-                    b.HasKey("GroupId", "UserId");
+                    b.Property<string>("UserId");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("UserId");
+
+                    b.HasIndex("GroupId", "UserId")
+                        .HasName("IX_GroupUserLink_Group_User");
 
                     b.ToTable("GroupUserLinks");
                 });
@@ -117,21 +122,6 @@ namespace GF.Data.Migrations
                         new { Id = 3, Description = "Accepted" },
                         new { Id = 4, Description = "Denied" }
                     );
-                });
-
-            modelBuilder.Entity("GF.Domain.Models.Planner", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("GroupId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GroupId");
-
-                    b.ToTable("Planners");
                 });
 
             modelBuilder.Entity("GF.Domain.Models.User", b =>
@@ -213,8 +203,8 @@ namespace GF.Data.Migrations
                     b.ToTable("AspNetRoles");
 
                     b.HasData(
-                        new { Id = "faf4f8ff-f72b-4be2-b96d-0a6011aa60b4", ConcurrencyStamp = "ed723444-0965-422c-868d-b69a6c034b22", Name = "AppUser", NormalizedName = "APPUSER" },
-                        new { Id = "d17593c6-1b2c-42a7-8d84-cc28b30f2ed0", ConcurrencyStamp = "320c8f11-4b98-4455-ad64-7326da38cdca", Name = "SuperUser", NormalizedName = "SUPERUSER" }
+                        new { Id = "5b7ddb2c-fad0-4dc7-ae78-6523d26d5227", ConcurrencyStamp = "5982d889-440d-4962-9e9f-01b3a6d34b55", Name = "AppUser", NormalizedName = "APPUSER" },
+                        new { Id = "0a0c5254-0116-4966-913f-b039fa35e82b", ConcurrencyStamp = "e6151e38-2449-4fcb-b3a0-d070a77f2036", Name = "SuperUser", NormalizedName = "SUPERUSER" }
                     );
                 });
 
@@ -306,9 +296,9 @@ namespace GF.Data.Migrations
 
             modelBuilder.Entity("GF.Domain.Models.Event", b =>
                 {
-                    b.HasOne("GF.Domain.Models.Planner", "Planner")
-                        .WithMany()
-                        .HasForeignKey("PlannerId")
+                    b.HasOne("GF.Domain.Models.Group", "Group")
+                        .WithMany("Events")
+                        .HasForeignKey("GroupId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
@@ -321,8 +311,7 @@ namespace GF.Data.Migrations
 
                     b.HasOne("GF.Domain.Models.User", "User")
                         .WithMany("GroupUserLinks")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("GF.Domain.Models.JoinRequest", b =>
@@ -340,14 +329,6 @@ namespace GF.Data.Migrations
                     b.HasOne("GF.Domain.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("GF.Domain.Models.Planner", b =>
-                {
-                    b.HasOne("GF.Domain.Models.Group", "Group")
-                        .WithMany()
-                        .HasForeignKey("GroupId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
